@@ -1,0 +1,38 @@
+  <%- include("header") -%>
+  <div class="box" id="heading">
+    <h1> It's <%= listTitle %> !!</h1>
+
+  </div>
+
+  <div class="box">
+
+
+
+    <% newList.forEach(function(item){ %>
+    <form action="/delete" method="post">
+      <div class="item">
+        <input type="checkbox" name="checked" value="<%= item._id%>" onChange="this.form.submit()"> <!-- when the box is checked it finds particular id that you checked and it submits to post request delete by onchange submit -->
+        <p> <%= item.name %></p>
+      </div>
+      <!-- this allows us to include data that can't be seen or modified by users when a form is submitted. -->
+      <input type="hidden" name="listyName" value="<%= listTitle %>"></input>
+
+    </form>
+
+    <% }) %>
+
+
+
+
+
+
+    <form class="item" action="/" method="post">
+      <input type="text" name="newItem" placeholder="new Item" autocomplete="off">
+      <button type="submit" name="List" value=<%= listTitle %>>+</button>
+
+  </div>
+
+
+  </form>
+
+  <%- include("footer") -%>
