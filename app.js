@@ -101,7 +101,7 @@ app.get("/:customListName", function(req , res){
         // show existing list
         //console.log("exist!");
 
-        res.render("List", {
+        res.render("list", {
           listTitle: foundList.name,
           newList: foundList.items
         })
